@@ -11,10 +11,15 @@ contract MyToken {
 
     uint256  public totalSupply;
     mapping(address => uint256) public balanceOf;
-    mapping(address => mapping(address => uint256)) allowance;
+    mapping(address => mapping(address => uint256)) public allowance;
 
 
-    constructor(string memory _name, string memory _symbol, uint8 _decimal, uint256 _amount) {
+    constructor(
+        string memory _name, 
+        string memory _symbol, 
+        uint8 _decimal, 
+        uint256 _amount
+    ) {
         name = _name;
         symbol = _symbol;
         decimals = _decimal;
