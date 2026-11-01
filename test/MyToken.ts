@@ -3,9 +3,8 @@ import { expect } from "chai";
 import { MyToken } from "../typechain-types";
 import { HardhatEthersSigner } from "@nomicfoundation/hardhat-ethers/signers";
 import { assertArgumentCount } from "ethers";
+import { DECIMALS, MINTING_AMOUNT } from "./constant";
 
-const MINTING_AMOUNT = 100n;
-const DECIMALS = 18n;
 
 describe("My Token", () => {
     let myTokenC: MyToken;
@@ -29,7 +28,7 @@ describe("My Token", () => {
             expect(await myTokenC.symbol()).equal("MT");
         });
         it("should return decimals", async () => {
-            expect(await myTokenC.decimals()).equal(decimals);
+            expect(await myTokenC.decimals()).equal(DECIMALS);
         });
         it("should return 100 totalSupply", async () => {
             expect(await myTokenC.totalSupply()).equal(MINTING_AMOUNT * 10n ** DECIMALS);
